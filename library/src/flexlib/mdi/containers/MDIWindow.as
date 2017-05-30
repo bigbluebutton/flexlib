@@ -1361,6 +1361,7 @@ package flexlib.mdi.containers
 			{
 				savePanel();
 			}
+			hideAllChildren();
 			dispatchEvent(new MDIWindowEvent(MDIWindowEvent.MINIMIZE, this));
 			windowState = MDIWindowState.MINIMIZED;
 			showControls = false;
@@ -1390,6 +1391,7 @@ package flexlib.mdi.containers
 		 */
 		public function restore():void
 		{
+			showAllChildren();
 			windowState = MDIWindowState.NORMAL;
 			updateStyles();
 			dispatchEvent(new MDIWindowEvent(MDIWindowEvent.RESTORE, this));
@@ -1426,6 +1428,16 @@ package flexlib.mdi.containers
 		private function savePanel():void
 		{
 			savedWindowRect = new Rectangle(this.x, this.y, this.width, this.height);
+		}
+		
+		protected function hideAllChildren():void
+		{
+			// To be overridden
+		}
+		
+		protected function showAllChildren():void
+		{
+			// To be overridden
 		}
 
 		/**
