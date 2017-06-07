@@ -25,7 +25,7 @@
 
   <groupId>com.google.code.flexlib</groupId>
   <artifactId>flexlib-parent</artifactId>
-  <version>2.6-M3-SNAPSHOT</version>
+  <version>2.6-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <name>flexlib</name>
@@ -276,6 +276,7 @@
     <connection>scm:git:git@github.com:flex-users/flexlib.git</connection>
     <developerConnection>scm:git:git@github.com:flex-users/flexlib.git</developerConnection>
     <url>https://github.com/flex-users/flexlib</url>
+    <tag>HEAD</tag>
   </scm>
 
   <issueManagement>
@@ -318,7 +319,6 @@
 
   <modules>
     <module>library</module>
-    <module>examples</module>
     <module>assemblies</module>
   </modules>
 
@@ -365,6 +365,7 @@
             </dependency>
           </dependencies>
           <configuration>
+            <accessible>true</accessible>
             <storepass />
             <themes>
               <theme>${settings.localRepository}/com/adobe/flex/framework/framework/${flex.version}/configs_zip/themes/Spark/spark.css</theme>
