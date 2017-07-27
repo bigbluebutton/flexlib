@@ -459,6 +459,12 @@ package flexlib.mdi.containers
 	     * or window's size/position is saved.
 	     */
 		public var savedWindowRect:Rectangle;
+		
+		
+		/**
+		 * Binds titleBar toolTip property to the window name.
+		 */
+		public var bindTitleBarToolTip : Boolean;
 
 		/**
 		 * @private
@@ -778,7 +784,8 @@ package flexlib.mdi.containers
 			minWidth = minHeight = width = height = 200;
 			windowState = MDIWindowState.NORMAL;
 			doubleClickEnabled = true;
-
+			bindTitleBarToolTip = true;
+			
 			this.addEventListener(KeyboardEvent.KEY_DOWN, arrowKeyPress);
 
 			windowControls = new MDIWindowControlsContainer();
@@ -813,7 +820,9 @@ package flexlib.mdi.containers
 				titleBarOverlay.height = this.titleBar.height;
 				titleBarOverlay.alpha = 0;
 				titleBarOverlay.setStyle("backgroundColor", 0x000000);
-				BindingUtils.bindProperty(titleBarOverlay, "toolTip", this, "title");
+				if (bindTitleBarToolTip) {
+					BindingUtils.bindProperty(titleBarOverlay, "toolTip", this, "title");
+				}
 				rawChildren.addChild(titleBarOverlay);
 			}
 
